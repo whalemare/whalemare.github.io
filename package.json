@@ -1,8 +1,12 @@
 {
   "name": "whalemare",
   "version": "0.1.0",
-  "homepage": "https://whalemare.github.io/whalemare.github.io",
+  "homepage": "https://whalemare.github.io",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whalemare/whalemare.github.io/"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
