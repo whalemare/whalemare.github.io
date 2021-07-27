@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/whalemare.github.io/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/whalemare.github.io/static/js/main.1a443b37.chunk.js",
+    "main.js.map": "/whalemare.github.io/static/js/main.1a443b37.chunk.js.map",
+    "runtime-main.js": "/whalemare.github.io/static/js/runtime-main.9d099eb7.js",
+    "runtime-main.js.map": "/whalemare.github.io/static/js/runtime-main.9d099eb7.js.map",
+    "static/js/2.4366102c.chunk.js": "/whalemare.github.io/static/js/2.4366102c.chunk.js",
+    "static/js/2.4366102c.chunk.js.map": "/whalemare.github.io/static/js/2.4366102c.chunk.js.map",
+    "static/js/3.669c340b.chunk.js": "/whalemare.github.io/static/js/3.669c340b.chunk.js",
+    "static/js/3.669c340b.chunk.js.map": "/whalemare.github.io/static/js/3.669c340b.chunk.js.map",
+    "index.html": "/whalemare.github.io/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/whalemare.github.io/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.4366102c.chunk.js.LICENSE.txt": "/whalemare.github.io/static/js/2.4366102c.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/whalemare.github.io/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9d099eb7.js",
+    "static/js/2.4366102c.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.1a443b37.chunk.js"
+  ]
+}
