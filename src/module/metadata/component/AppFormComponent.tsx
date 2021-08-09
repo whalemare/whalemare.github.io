@@ -23,6 +23,7 @@ export const AppFormComponent = observer<AppFormComponentProps>(() => {
       <Typography gutterBottom variant="h6">
         {strings.mainInfo}
       </Typography>
+
       <Grid container alignItems="stretch" spacing={3}>
         <Grid item xs={12}>
           <TextView

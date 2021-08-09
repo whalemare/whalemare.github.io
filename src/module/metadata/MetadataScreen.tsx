@@ -1,10 +1,21 @@
-import { AppBar, makeStyles, Paper, Step, StepLabel, Stepper, Toolbar, Typography } from '@material-ui/core'
+import {
+  AppBar,
+  makeStyles,
+  Paper,
+  Step,
+  StepLabel,
+  Stepper,
+  Toolbar,
+  Typography,
+  CssBaseline,
+} from '@material-ui/core'
 import React, { useState } from 'react'
 import { useMemo } from 'react'
 
 import { useStrings } from '../locale/useStrings'
 
 import { AppFormComponent } from './component/AppFormComponent'
+import { ThemeFormComponent } from './component/ThemeFormComponent'
 import { BackNextButtonRow } from './view/BackNextButtonRow'
 
 interface MetadataScreenProps {}
@@ -36,14 +47,6 @@ const useStyles = makeStyles((theme) => ({
   stepper: {
     padding: theme.spacing(3, 0, 5),
   },
-  buttons: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  button: {
-    marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1),
-  },
 }))
 
 export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
@@ -58,19 +61,21 @@ export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
         Component: <AppFormComponent />,
       },
       {
-        title: strings.other,
-        Component: <AppFormComponent />,
+        title: strings.appTheme,
+        Component: <ThemeFormComponent />,
       },
       {
         title: strings.review,
         Component: <AppFormComponent />,
       },
     ],
-    [strings.appInfo, strings.other, strings.review],
+    [strings.appInfo, strings.appTheme, strings.review],
   )
 
   return (
-    <div style={{ backgroundColor: 'red' }}>
+    <>
+      <CssBaseline />
+
       <AppBar className={classes.appBar} color="default" position="absolute">
         <Toolbar>
           <Typography noWrap color="inherit" variant="h6">
@@ -79,7 +84,7 @@ export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
         </Toolbar>
       </AppBar>
       <main className={classes.layout}>
-        <Paper>
+        <Paper className={classes.paper}>
           <Typography align="center" component="h1" variant="h4">
             {strings.brif}
           </Typography>
@@ -99,6 +104,6 @@ export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
           />
         </Paper>
       </main>
-    </div>
+    </>
   )
 }
