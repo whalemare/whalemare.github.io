@@ -1,4 +1,4 @@
-import { Grid, TextField, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { observer } from 'mobx-react-lite'
 
 import { TextView } from '../../../lib/react/TextView'
@@ -23,13 +23,14 @@ export const AppFormComponent = observer<AppFormComponentProps>(() => {
             helperText={strings.appNameDescription}
             label={strings.appName}
             store={formStore.appName}
+            onBlur={formStore.onBlurAppName}
           />
 
-          <TextField
+          <TextView
             fullWidth
             helperText={strings.appNameStoreDescription}
             label={strings.appNameStore}
-            style={{ marginTop: 12 }}
+            store={formStore.appNameStore}
           />
         </Grid>
       </Grid>
