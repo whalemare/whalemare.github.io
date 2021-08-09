@@ -1,19 +1,26 @@
 import { makeAutoObservable } from 'mobx'
 
 import { TextStore } from '../../../lib/mobx/TextStore'
+import { AppStrings } from '../../locale/useStrings'
 
 export class FormStore {
   appName = new TextStore()
 
-  appNameStore = new TextStore()
+  appNameMarket = new TextStore()
+
+  descriptionMarket = new TextStore()
 
   onBlurAppName = () => {
-    if (!this.appNameStore.value) {
-      this.appNameStore.set(this.appName.value.trim())
+    if (!this.appNameMarket.value) {
+      this.appNameMarket.set(this.appName.value.trim())
     }
   }
 
-  constructor() {
+  onPressRestoreDescription = () => {
+    this.descriptionMarket.set(this.strings.marketDescriptionPlaceholder)
+  }
+
+  constructor(private strings: AppStrings) {
     makeAutoObservable(this)
   }
 }
