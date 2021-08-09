@@ -27,7 +27,7 @@ export const BackNextButtonRow: React.FC<BackNextButtonRowProps> = ({ current, l
 
   return (
     <div className={classes.buttons}>
-      {current && (
+      {!!current && (
         <Button className={classes.button} onClick={onPressBack}>
           {strings.actions.back}
         </Button>

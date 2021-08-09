@@ -22,7 +22,7 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,

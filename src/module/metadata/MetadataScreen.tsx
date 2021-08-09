@@ -61,8 +61,12 @@ export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
         title: strings.other,
         Component: <AppFormComponent />,
       },
+      {
+        title: strings.review,
+        Component: <AppFormComponent />,
+      },
     ],
-    [strings.appInfo, strings.other],
+    [strings.appInfo, strings.other, strings.review],
   )
 
   return (
@@ -90,8 +94,8 @@ export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
           <BackNextButtonRow
             current={activeStep}
             length={steps.length}
-            onPressBack={() => setActiveStep((current) => current - 1)}
-            onPressNext={() => setActiveStep((current) => current + 1)}
+            onPressBack={() => setActiveStep((current) => Math.max(current - 1, 0))}
+            onPressNext={() => setActiveStep((current) => Math.min(current + 1, steps.length))}
           />
         </Paper>
       </main>

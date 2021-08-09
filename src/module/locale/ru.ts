@@ -1,6 +1,6 @@
 /* eslint-disable i18n/no-russian-character */
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+
+const ru = {
   name: 'FitBase',
   appInfo: 'О вашем приложении',
   other: 'Другое',
@@ -9,4 +9,12 @@ export default {
     back: 'Назад',
     next: 'Далее',
   },
+  review: 'Проверка формы',
+  mainInfo: 'Основные данные',
+  appName: 'Название приложения',
+  appNameStore: 'Название приложения в маркете (в App Store или Google Play)',
+  appNameDescription: 'Таким его увидят пользователи на рабочем столе своего телефона',
+  appNameStoreDescription: 'Таким его увидят пользователи перед скачиванием',
 }
+
+export default ru
