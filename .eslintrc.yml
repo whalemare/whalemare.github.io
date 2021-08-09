@@ -70,45 +70,45 @@ rules:
   '@typescript-eslint/ban-ts-comment': 'off'
   '@typescript-eslint/ban-types': 'warn'
   '@typescript-eslint/consistent-type-definitions': 'error'
-  '@typescript-eslint/member-ordering': [
-      'warn',
-      default: [
-        'signature',
+  # '@typescript-eslint/member-ordering': [
+  #     'warn',
+  #     default: [
+  #       'signature',
 
-        # Fields
-        'private-static-field',
-        'private-decorated-field',
-        'private-instance-field',
-        'private-abstract-field',
-        'public-static-field',
-        'protected-static-field',
-        'public-decorated-field',
-        'protected-decorated-field',
-        'public-instance-field',
-        'protected-instance-field',
-        'public-abstract-field',
-        'protected-abstract-field',
+  #       # Fields
+  #       'private-static-field',
+  #       'private-decorated-field',
+  #       'private-instance-field',
+  #       'private-abstract-field',
+  #       'public-static-field',
+  #       'protected-static-field',
+  #       'public-decorated-field',
+  #       'protected-decorated-field',
+  #       'public-instance-field',
+  #       'protected-instance-field',
+  #       'public-abstract-field',
+  #       'protected-abstract-field',
 
-        #  Methods
-        'private-static-method',
-        'private-decorated-method',
-        'private-instance-method',
-        'private-abstract-method',
-        'public-static-method',
-        'protected-static-method',
-        'public-decorated-method',
-        'protected-decorated-method',
-        'public-instance-method',
-        'protected-instance-method',
-        'public-abstract-method',
-        'protected-abstract-method',
+  #       #  Methods
+  #       'private-static-method',
+  #       'private-decorated-method',
+  #       'private-instance-method',
+  #       'private-abstract-method',
+  #       'public-static-method',
+  #       'protected-static-method',
+  #       'public-decorated-method',
+  #       'protected-decorated-method',
+  #       'public-instance-method',
+  #       'protected-instance-method',
+  #       'public-abstract-method',
+  #       'protected-abstract-method',
 
-        #  Constructors
-        'public-constructor',
-        'protected-constructor',
-        'private-constructor',
-      ],
-    ]
+  #       #  Constructors
+  #       'public-constructor',
+  #       'protected-constructor',
+  #       'private-constructor',
+  #     ],
+  #   ]
   '@typescript-eslint/no-empty-interface': 'off'
   '@typescript-eslint/no-explicit-any': 'warn'
   '@typescript-eslint/no-extra-non-null-assertion': 'error'

@@ -7,6 +7,15 @@ export type TextViewProps = TextFieldProps & {
   store: TextStore
 }
 
-export const TextView = observer<TextViewProps>(({ store, ...restProps }) => {
-  return <TextField value={store.value} onChange={store.onChange} {...restProps} />
+export const TextView = observer<TextViewProps>(({ store, helperText, ...restProps }) => {
+  const isError = !!store.error
+  return (
+    <TextField
+      error={isError}
+      value={store.value}
+      onChange={store.onChange}
+      {...restProps}
+      helperText={isError ? store.error : helperText}
+    />
+  )
 })
