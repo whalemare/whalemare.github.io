@@ -1,21 +1,27 @@
-import chroma from 'chroma-js';
+import chroma from 'chroma-js'
 import React, { useState } from 'react'
-import { ReactComponent as Logo } from './appstore/0_APP_IPHONE_55_0.svg';
 
-interface ScreenshotPreviewProps {
-}
+import { ReactComponent as Logo } from './appstore/0_APP_IPHONE_55_0.svg'
 
-export const ScreenshotPreview: React.FC<ScreenshotPreviewProps> = props => {
-  const [color, setColor] = useState(new URLSearchParams(window.location.search).get("color") ?? '#13718A')
+interface ScreenshotPreviewProps {}
 
-  return <div>
-    <header className="App-header">
-        <input value={color} type="text" onChange={e => {
-          setColor(e.target.value)
-        }} />
-        <Logo height={500} fill={parseColor(color)} />
+export const ScreenshotPreview: React.FC<ScreenshotPreviewProps> = () => {
+  const [color, setColor] = useState(new URLSearchParams(window.location.search).get('color') ?? '#13718A')
+
+  return (
+    <div>
+      <header className="App-header">
+        <input
+          type="text"
+          value={color}
+          onChange={(e) => {
+            setColor(e.target.value)
+          }}
+        />
+        <Logo fill={parseColor(color)} height={500} />
       </header>
-  </div>
+    </div>
+  )
 }
 
 const parseColor = (value: string) => {

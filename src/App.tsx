@@ -1,12 +1,13 @@
-import './App.css';
-import { MetadataScreen } from './module/metadata/MetadataScreen';
+import './App.css'
 
-function App(props: any) {
+import { MetadataScreen } from './module/metadata/MetadataScreen'
+
+function App() {
   return (
     <div className="App">
       <MetadataScreen />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
