@@ -11,6 +11,9 @@ const ru = {
     useDefault: 'По умолчанию',
   },
   errorShouldBeColor: 'Должен быть указан цвет (#000, black, #fff, white)',
+  selectBackgroundSplashColor: 'Выберите цвет фона, на котором будет показано промо изображение',
+  selectBackgroundSplashColorHelp:
+    'Рекомендуется указать цвет фона промо-изображения, чтобы изображение и фон сливались в точках пересечения',
   primaryColor: 'Основной цвет',
   primaryInverseColor: 'Цвет контрастный основному',
   primaryInverseColorHint: 'Цвет должен быть такой, чтобы его было легко читать на фоне основного',

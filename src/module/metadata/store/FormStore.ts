@@ -34,6 +34,10 @@ export class FormStore {
 
   splashFile = new ValueStore<File | undefined>(undefined)
 
+  splashBackgroundColor = new TextStore('#000', {
+    validate: this.validateColor,
+  })
+
   onBlurAppName = () => {
     if (!this.appNameMarket.value) {
       this.appNameMarket.set((this.appName.value || '').trim())

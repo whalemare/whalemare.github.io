@@ -4,6 +4,7 @@ import { useMemo } from 'react'
 import { useEffect } from 'react'
 import { FileError, useDropzone } from 'react-dropzone'
 
+import { TextView } from '../../../lib/react/TextView'
 import { useStrings } from '../../locale/useStrings'
 import { useStores } from '../../useStores'
 interface IconFormComponentProps {}
@@ -48,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
     width: 'auto',
     height: '100%',
   },
+  textColor: {
+    marginTop: theme.spacing(2),
+  },
 }))
 
 export const IconFormComponent = observer<IconFormComponentProps>(({}) => {
@@ -84,6 +88,13 @@ export const IconFormComponent = observer<IconFormComponentProps>(({}) => {
             formStore.splashFile.set(files[0])
           }
         }}
+      />
+
+      <TextView
+        className={styles.textColor}
+        helperText={strings.selectBackgroundSplashColorHelp}
+        label={strings.selectBackgroundSplashColor}
+        store={formStore.splashBackgroundColor}
       />
     </>
   )
