@@ -1,9 +1,11 @@
 import { FormControl, FormHelperText, InputLabel, makeStyles, MenuItem, Select, Typography } from '@material-ui/core'
 import { observer } from 'mobx-react-lite'
+import Linkify from 'react-linkify'
 
 import { TextView } from '../../../lib/react/TextView'
 import { useStrings } from '../../locale/useStrings'
 import { useStores } from '../../useStores'
+import { SocialFormView } from '../view/SocialFormView'
 
 interface MetaFormComponentProps {}
 
@@ -27,7 +29,9 @@ export const MetaFormComponent = observer<MetaFormComponentProps>(({}) => {
         <Typography align="left" variant="h5">
           {strings.smsInt}
         </Typography>
-        <Typography variant="caption">{strings.smsIntDescription}</Typography>
+        <Linkify>
+          <Typography align="left">{strings.smsIntDescription}</Typography>
+        </Linkify>
         <TextView fullWidth label={strings.loginSmsInt} store={formStore.loginSmsInt} />
         <TextView
           fullWidth
@@ -80,6 +84,8 @@ export const MetaFormComponent = observer<MetaFormComponentProps>(({}) => {
           </Select>
           <FormHelperText>{strings.onlinePayHelp}</FormHelperText>
         </FormControl>
+
+        <SocialFormView store={formStore.socials} />
       </div>
     </div>
   )

@@ -1,61 +1,62 @@
-import { Button, TextField } from '@material-ui/core'
+import { Button, Grid, TextField } from '@material-ui/core'
 import { last } from 'lodash'
 import { observer } from 'mobx-react-lite'
-import { useEffect } from 'react'
-import { useState } from 'react'
 
-import { getKeys } from '../../../lib/typescript/getKeys'
+import { ValueStore } from '../../../lib/mobx/ValueStore'
 import { useStrings } from '../../locale/useStrings'
 
 interface SocialFormViewProps {
-  onChanges: (socials: string[]) => void
+  store: ValueStore<string[]>
 }
 
-export const SocialFormView = observer<SocialFormViewProps>(({ onChanges }) => {
+function replace<T>(items: T[], isItem: (it: T, index: number) => boolean, fresh: T) {
+  return [...items].map((it, index) => {
+    if (isItem(it, index)) {
+      return fresh
+    }
+    return it
+  })
+}
+
+export const SocialFormView = observer<SocialFormViewProps>(({ store }) => {
   const strings = useStrings()
 
-  const [socials, setSocials] = useState<{ [key in number]: string }>({ 0: '' })
-
-  useEffect(() => {
-    onChanges(Object.values(socials))
-  }, [onChanges, socials])
-
   return (
-    <div>
-      {getKeys(socials).map((key, index) => {
-        const socialText = socials[key]
-
+    <Grid container>
+      {store.value.map((socialText, index) => {
         return (
-          <TextField
+          <Grid
+            item
             // eslint-disable-next-line react/no-array-index-key
             key={index}
-            label={strings.link}
-            value={socialText}
-            onChange={(e) =>
-              setSocials((prev) => ({
-                ...prev,
-                [key]: e.target.value,
-              }))
-            }
-          />
+            sm={12}
+            style={{ marginTop: 8 }}
+          >
+            <TextField
+              fullWidth
+              label={strings.link}
+              value={socialText}
+              onChange={(e) => {
+                const next = e.target.value
+                const replaced = replace(store.value, (_, mIndex) => mIndex === index, next)
+                store.set(replaced)
+              }}
+            />
+          </Grid>
         )
       })}
       <Button
+        style={{ marginTop: 12 }}
         onClick={() => {
-          const lastItemKey = last(getKeys(socials))
-          if (!!lastItemKey) {
-            const lastItemValue = socials[lastItemKey]
-            if (!!lastItemValue) {
-              setSocials((prev) => ({
-                ...prev,
-                [lastItemKey + 1]: '',
-              }))
-            }
+          const lastItemValue = last(store.value)
+
+          if (!!lastItemValue) {
+            store.set([...store.value, ''])
           }
         }}
       >
         {strings.actions.add}
       </Button>
-    </div>
+    </Grid>
   )
 })

@@ -106,6 +106,8 @@ export class FormStore {
     validate: this.validators.notEmpty,
   })
 
+  socials = new ValueStore<string[]>([''])
+
   onBlurAppName = () => {
     if (!this.appNameMarket.value) {
       this.appNameMarket.set((this.appName.value || '').trim())
