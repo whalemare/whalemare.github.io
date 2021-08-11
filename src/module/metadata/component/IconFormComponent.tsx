@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { FileError, useDropzone } from 'react-dropzone'
 
 import { useStrings } from '../../locale/useStrings'
+import { useStores } from '../../useStores'
 interface IconFormComponentProps {}
 
 const useStyles = makeStyles((theme) => ({
@@ -51,27 +52,38 @@ const useStyles = makeStyles((theme) => ({
 
 export const IconFormComponent = observer<IconFormComponentProps>(({}) => {
   const strings = useStrings()
+  const { formStore } = useStores()
   const styles = useStyles()
 
   return (
     <>
       <DropFile
         previewStyle={styles.previewSquare}
+        previews={formStore.iconFile.value ? [formStore.iconFile.value] : []}
         sizes={{
           width: 1024,
           height: 1024,
         }}
         title={strings.selectAppIcon}
-        onChanges={(files) => console.log('files', files)}
+        onChanges={(files) => {
+          if (files.length) {
+            formStore.iconFile.set(files[0])
+          }
+        }}
       />
       <DropFile
         previewStyle={styles.previewLong}
+        previews={formStore.splashFile.value ? [formStore.splashFile.value] : []}
         sizes={{
           width: 1024,
           height: 500,
         }}
         title={strings.selectAppPromo}
-        onChanges={(files) => console.log('files', files)}
+        onChanges={(files) => {
+          if (files.length) {
+            formStore.splashFile.set(files[0])
+          }
+        }}
       />
     </>
   )
@@ -83,7 +95,8 @@ const DropFile = observer<{
   previewStyle: any
   sizes: { width: number; height: number }
   description?: string
-}>(({ title, onChanges, previewStyle, sizes, description }) => {
+  previews: File[]
+}>(({ title, onChanges, previewStyle, sizes, description, previews }) => {
   const styles = useStyles()
   const strings = useStrings()
 
@@ -125,7 +138,6 @@ const DropFile = observer<{
         const promise = new Promise<File>((resolve) => {
           const image = new Image()
           image.onload = function () {
-            console.log('onload', file)
             // @ts-ignore
             file.width = image.width
             // @ts-ignore
@@ -152,8 +164,8 @@ const DropFile = observer<{
     }
   }, [acceptedFiles, onChanges])
 
-  const previews = useMemo(() => {
-    return acceptedFiles.map((file) => {
+  const previewsImages = useMemo(() => {
+    return previews.map((file) => {
       return (
         <div className={previewStyle} key={file.name}>
           <div className={styles.previewInner}>
@@ -162,7 +174,7 @@ const DropFile = observer<{
         </div>
       )
     })
-  }, [acceptedFiles, previewStyle, styles.previewImage, styles.previewInner])
+  }, [previewStyle, previews, styles.previewImage, styles.previewInner])
 
   return (
     <div>
@@ -175,7 +187,7 @@ const DropFile = observer<{
           <em>{description}</em>
         </div>
       </section>
-      <aside>{previews}</aside>
+      <aside>{previewsImages}</aside>
     </div>
   )
 })

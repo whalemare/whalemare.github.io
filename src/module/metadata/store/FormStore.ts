@@ -2,6 +2,7 @@ import chroma from 'chroma-js'
 import { makeAutoObservable } from 'mobx'
 
 import { TextStore } from '../../../lib/mobx/TextStore'
+import { ValueStore } from '../../../lib/mobx/ValueStore'
 import { AppStrings } from '../../locale/useStrings'
 
 export class FormStore {
@@ -15,11 +16,11 @@ export class FormStore {
     return undefined
   }
 
-  appName = new TextStore()
+  appName = new TextStore('')
 
-  appNameMarket = new TextStore()
+  appNameMarket = new TextStore('')
 
-  descriptionMarket = new TextStore()
+  descriptionMarket = new TextStore('')
 
   primaryColor = new TextStore('#000', {
     validate: this.validateColor,
@@ -29,9 +30,13 @@ export class FormStore {
     validate: this.validateColor,
   })
 
+  iconFile = new ValueStore<File | undefined>(undefined)
+
+  splashFile = new ValueStore<File | undefined>(undefined)
+
   onBlurAppName = () => {
     if (!this.appNameMarket.value) {
-      this.appNameMarket.set(this.appName.value.trim())
+      this.appNameMarket.set((this.appName.value || '').trim())
     }
   }
 
