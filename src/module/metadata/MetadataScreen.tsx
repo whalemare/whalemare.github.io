@@ -16,6 +16,7 @@ import { useStrings } from '../locale/useStrings'
 
 import { AppFormComponent } from './component/AppFormComponent'
 import { IconFormComponent } from './component/IconFormComponent'
+import { MetaFormComponent } from './component/MetaFormComponent'
 import { ThemeFormComponent } from './component/ThemeFormComponent'
 import { BackNextButtonRow } from './view/BackNextButtonRow'
 
@@ -58,6 +59,10 @@ export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
   const steps = useMemo(
     () => [
       {
+        title: strings.meta,
+        Component: <MetaFormComponent />,
+      },
+      {
         title: strings.appInfo,
         Component: <AppFormComponent />,
       },
@@ -74,7 +79,7 @@ export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
         Component: <AppFormComponent />,
       },
     ],
-    [strings.appInfo, strings.appTheme, strings.icons, strings.review],
+    [strings.appInfo, strings.appTheme, strings.icons, strings.meta, strings.review],
   )
 
   return (
