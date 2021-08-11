@@ -15,6 +15,7 @@ import { useMemo } from 'react'
 import { useStrings } from '../locale/useStrings'
 
 import { AppFormComponent } from './component/AppFormComponent'
+import { IconFormComponent } from './component/IconFormComponent'
 import { ThemeFormComponent } from './component/ThemeFormComponent'
 import { BackNextButtonRow } from './view/BackNextButtonRow'
 
@@ -65,11 +66,15 @@ export const MetadataScreen: React.FC<MetadataScreenProps> = () => {
         Component: <ThemeFormComponent />,
       },
       {
+        title: strings.icons,
+        Component: <IconFormComponent />,
+      },
+      {
         title: strings.review,
         Component: <AppFormComponent />,
       },
     ],
-    [strings.appInfo, strings.appTheme, strings.review],
+    [strings.appInfo, strings.appTheme, strings.icons, strings.review],
   )
 
   return (

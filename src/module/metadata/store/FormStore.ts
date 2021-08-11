@@ -21,11 +21,11 @@ export class FormStore {
 
   descriptionMarket = new TextStore()
 
-  primaryColor = new TextStore('', {
+  primaryColor = new TextStore('#000', {
     validate: this.validateColor,
   })
 
-  primaryInverseColor = new TextStore('', {
+  primaryInverseColor = new TextStore('#FFF', {
     validate: this.validateColor,
   })
 
